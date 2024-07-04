@@ -1,4 +1,7 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import  TextField  from '@mui/material/TextField';
+import React, { ChangeEvent, KeyboardEvent, useState } from 'react';
+import  ControlPoint  from '@mui/icons-material/ControlPoint';
+import  IconButton  from '@mui/material/IconButton';
 
 type AddItemFromPropsType = {
     addItem: (todolistId: string) => void
@@ -11,7 +14,7 @@ export const AddItemForm = (props: AddItemFromPropsType) => {
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null)
         if (e.charCode === 13) {
-            props.addItem( title)
+            props.addItem(title)
             setTitle('')
         }
     }
@@ -25,8 +28,10 @@ export const AddItemForm = (props: AddItemFromPropsType) => {
         }
     }
     return <div>
-        <input className={error ? 'error' : ''} value={title} onChange={onChangeHandler}
-               onKeyPress={onKeyPressHandler}/>
-        <button onClick={addTask}>+</button>
+        <TextField size='small' label={!error ? 'Enter value' :'error'} variant='outlined' error={!!error} value={title} onChange={onChangeHandler}
+            onKeyPress={onKeyPressHandler} />
+        <IconButton  onClick={addTask} color='primary'>
+            <ControlPoint/>
+        </IconButton>
         {error && <div className={'error-message'}>{error}</div>}</div>
 }
