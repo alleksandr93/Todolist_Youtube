@@ -1,6 +1,7 @@
-import {TaskStateType} from '../App';
+
 import {v1} from 'uuid';
-import {AddTotodlistActionType, RemoveTodoListActionType} from './todolists-reduser';
+import {AddTotodlistActionType, RemoveTodoListActionType, todolistId1, todolistId2} from './todolists-reduser';
+import {TaskStateType} from '../AppWithRedux';
 
 type RemoveTaskActionType = {
     type: 'REMOVE-TASK'
@@ -40,7 +41,19 @@ type Actionstype =
     | AddTotodlistActionType
     | RemoveTodoListActionType
 
-export const tasksReduser = (state: TaskStateType, action: Actionstype): TaskStateType => {
+const  initialState:TaskStateType = {
+    [todolistId1]: [
+        {id: v1(), title: 'CSS', isDone: true},
+        {id: v1(), title: 'JS', isDone: true},
+        {id: v1(), title: 'React', isDone: false},
+        {id: v1(), title: 'Redux', isDone: false},
+    ],
+    [todolistId2]: [
+        {id: v1(), title: 'Book', isDone: true},
+        {id: v1(), title: 'Milk', isDone: true},
+    ]
+}
+export const tasksReduser = (state: TaskStateType=initialState, action: Actionstype): TaskStateType => {
     switch (action.type) {
         case 'REMOVE-TASK':
             return {

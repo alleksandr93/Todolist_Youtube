@@ -20,6 +20,6 @@ export const userReduser = (state: Statetype, action: ActionType): Statetype => 
         case 'CHANGE-NAME':
             return {...state,name:action.newName}
         default:
-            throw new Error(`I don't understand action type`);
+            return state
     }
 }

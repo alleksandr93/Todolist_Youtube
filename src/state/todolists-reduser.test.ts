@@ -1,11 +1,9 @@
-import {userReduser} from './user-reduser';
 import {v1} from 'uuid';
-import {useState} from 'react';
-import {FilterValueType, todolistType} from '../App';
+import {FilterValueType, todolistType} from '../AppWithRedux';
 import {
-    addTodolistAC, changeTodolistFilterAC, changeTodolistTitleAC,
-    ChangeTotodlistFilterActionType,
-    ChangeTotodlistTitleActionType,
+    addTodolistAC,
+    changeTodolistFilterAC,
+    changeTodolistTitleAC,
     removeTodolistAC,
     todolistsReducer
 } from './todolists-reduser';
@@ -32,7 +30,7 @@ test('user reducer should be added', () => {
     ]
     const endState = todolistsReducer(startState, addTodolistAC(newTodolist))
     expect(endState.length).toBe(3)
-    expect(endState[2].title).toBe(newTodolist)
+    expect(endState[0].title).toBe(newTodolist)
 })
 test('correct todolist change its name', () => {
     const todolistId1 = v1()
