@@ -1,5 +1,5 @@
 import {v1} from 'uuid';
-import {FilterValueType, todolistType} from '../AppWithRedux';
+import {FilterValueType, TodolistType} from '../AppWithRedux';
 import {
     addTodolistAC,
     changeTodolistFilterAC,
@@ -12,7 +12,7 @@ import {
 test('user reducer should be removed', () => {
     const todolistId1 = v1()
     const todolistId2 = v1()
-    const startState: Array<todolistType> = [
+    const startState: Array<TodolistType> = [
         {id: todolistId1, title: 'What to learn', filter: 'All'},
         {id: todolistId2, title: 'What to buy', filter: 'All'},
     ]
@@ -24,7 +24,7 @@ test('user reducer should be added', () => {
     const todolistId1 = v1()
     const todolistId2 = v1()
     const newTodolist= "New Todolist"
-    const startState: Array<todolistType> = [
+    const startState: Array<TodolistType> = [
         {id: todolistId1, title: 'What to learn', filter: 'All'},
         {id: todolistId2, title: 'What to buy', filter: 'All'},
     ]
@@ -38,7 +38,7 @@ test('correct todolist change its name', () => {
 
     const newTodolistTitle= "New Todolist"
 
-    const startState: Array<todolistType> = [
+    const startState: Array<TodolistType> = [
         {id: todolistId1, title: 'What to learn', filter: 'All'},
         {id: todolistId2, title: 'What to buy', filter: 'All'},
     ]
@@ -54,7 +54,7 @@ test('correct filter of todolist should be changed', () => {
 
     let newFilter:FilterValueType= "Completed"
 
-    const startState: Array<todolistType> = [
+    const startState: Array<TodolistType> = [
         {id: todolistId1, title: 'What to learn', filter: 'All'},
         {id: todolistId2, title: 'What to buy', filter: 'All'},
     ]

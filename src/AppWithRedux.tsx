@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, {memo, useCallback} from 'react';
 import './App.css';
 import {TaskType, Todolist} from './Todolist';
 import {AddItemForm} from './AddItemForm';
@@ -16,9 +15,9 @@ import {addTodolistAC} from './state/todolists-reduser';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootState} from './state/store';
 
-//Типизация кнопок фильтра
+
 export type FilterValueType = 'All' | 'Completed' | 'Active'
-export type todolistType = {
+export type TodolistType = {
     id: string
     title: string
     filter: FilterValueType
@@ -27,14 +26,16 @@ export type TaskStateType = {
     [key: string]: Array<TaskType>
 }
 
-function AppWithRedux() {
+
+export const AppWithRedux= memo(() =>{
+    console.log('App with Redux');
     const dispatch = useDispatch()
-    const todolists = useSelector<AppRootState,Array<todolistType>>(state => state.todolist)
-    const addTodolist = (title: string) => {
+    const todolists = useSelector<AppRootState,Array<TodolistType>>(state => state.todolist)
+    const addTodolist = useCallback((title: string) => {
         const action = addTodolistAC(title)
         dispatch(action)
 
-    }
+    },[dispatch])
     return (
         <div className="App">
             <AppBar position="static">
@@ -62,11 +63,7 @@ function AppWithRedux() {
                     {todolists.map(tl => {
                         return <Grid item key={tl.id}>
                             <Paper elevation={5} sx={{padding: '10px'}}>
-                                <Todolist
-                                    todolistId={tl.id}
-                                    title={tl.title}
-                                    filter={tl.filter}
-                                />
+                                <Todolist todolists ={tl}/>
                             </Paper>
                         </Grid>
                     })}
@@ -75,6 +72,6 @@ function AppWithRedux() {
 
         </div>
     );
-}
+})
 
 export default AppWithRedux;
