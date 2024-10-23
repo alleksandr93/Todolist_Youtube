@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {AppRootState} from './state/store';
 import {changeTodolistFilterAC, changeTodolistTitleAC, removeTodolistAC} from './state/todolists-reduser';
 import {addTaskAC} from './state/tasks-reduser';
-import {Task} from './Tasks';
+import {Task} from './Task';
 
 
 type PropsType = {

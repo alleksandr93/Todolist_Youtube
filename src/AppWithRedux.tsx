@@ -30,7 +30,7 @@ export type TaskStateType = {
 export const AppWithRedux= memo(() =>{
     console.log('App with Redux');
     const dispatch = useDispatch()
-    const todolists = useSelector<AppRootState,Array<TodolistType>>(state => state.todolist)
+    const todolists = useSelector<AppRootState,Array<TodolistType>>(state => state.todolists)
     const addTodolist = useCallback((title: string) => {
         const action = addTodolistAC(title)
         dispatch(action)
