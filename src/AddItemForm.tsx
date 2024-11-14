@@ -8,7 +8,6 @@ type AddItemFromPropsType = {
 
 }
 export const AddItemForm = memo((props: AddItemFromPropsType) => {
-    console.log('AddItemForm is called')
     const [title, setTitle] = useState('')
     const [error, setError] = useState<string | null>(null)
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {

@@ -1,6 +1,6 @@
 import React, {memo, useCallback} from 'react';
 import './App.css';
-import {TaskType, Todolist} from './Todolist';
+import {Todolist} from './Todolist';
 import {AddItemForm} from './AddItemForm';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,17 +11,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import {addTodolistAC} from './state/todolists-reduser';
+import {addTodolistAC, TodolistDomainType} from './state/todolists-reduser';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootState} from './state/store';
+import {TaskType} from './api/todolists-api';
 
 
-export type FilterValueType = 'All' | 'Completed' | 'Active'
-export type TodolistType = {
-    id: string
-    title: string
-    filter: FilterValueType
-}
 export type TaskStateType = {
     [key: string]: Array<TaskType>
 }
@@ -30,7 +25,7 @@ export type TaskStateType = {
 export const AppWithRedux= memo(() =>{
     console.log('App with Redux');
     const dispatch = useDispatch()
-    const todolists = useSelector<AppRootState,Array<TodolistType>>(state => state.todolists)
+    const todolists = useSelector<AppRootState,Array<TodolistDomainType>>(state => state.todolists)
     const addTodolist = useCallback((title: string) => {
         const action = addTodolistAC(title)
         dispatch(action)

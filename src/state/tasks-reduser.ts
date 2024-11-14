@@ -1,7 +1,7 @@
-
 import {v1} from 'uuid';
-import {AddTotodlistActionType, RemoveTodoListActionType, todolistId1, todolistId2} from './todolists-reduser';
+import {AddTotodlistActionType, RemoveTodoListActionType} from './todolists-reduser';
 import {TaskStateType} from '../AppWithRedux';
+import {TaskStatuses, TaskType, TodoTaskPriorities} from '../api/todolists-api';
 
 type RemoveTaskActionType = {
     type: 'REMOVE-TASK'
@@ -22,7 +22,7 @@ type ChangeTaskStatusActionType = {
     payload: {
         todolistId: string
         taskId: string
-        isDone: boolean
+        status: TaskStatuses
     }
 }
 type ChangeTaskTitleActionType = {
@@ -50,14 +50,14 @@ export const tasksReduser = (state: TaskStateType=initialState, action: Actionst
                     state[action.payload.todolistId].filter(el => el.id !== action.payload.taskId)
             }
         case 'ADD-TASK':
-            const newTask = {id: v1(), title: action.payload.title, isDone: false}
+            const newTask:TaskType = {id: v1(), title: action.payload.title,status:TaskStatuses.New,todoListId:action.payload.todolistId,description:'',startDate:'',deadline:'',addedDate:'',completed:true,order:0,priority:TodoTaskPriorities.Low}
             return {...state, [action.payload.todolistId]: [newTask, ...state[action.payload.todolistId]]}
         case 'CHANGE-TASK-STATUS':
             return {
                 ...state, [action.payload.todolistId]:
                     state[action.payload.todolistId].map(el => el.id === action.payload.taskId ? {
                         ...el,
-                        isDone: action.payload.isDone
+                        status:action.payload.status
                     } : el)
             }
         case 'CHANGE-TASK-TITLE':
@@ -84,8 +84,8 @@ export const removeTaskAC = (todolistId: string, taskId: string): RemoveTaskActi
 export const addTaskAC = (todolistId: string, title: string): AddTaskActionType => {
     return {type: 'ADD-TASK', payload: {todolistId, title}} as const
 }
-export const changeTaskStatusAC = (todolistId: string, taskId: string, isDone: boolean): ChangeTaskStatusActionType => {
-    return {type: 'CHANGE-TASK-STATUS', payload: {todolistId, taskId, isDone}} as const
+export const changeTaskStatusAC = (todolistId: string, taskId: string, status: TaskStatuses): ChangeTaskStatusActionType => {
+    return {type: 'CHANGE-TASK-STATUS', payload: {todolistId, taskId, status}} as const
 }
 export const changeTaskTitleAC = (todolistId: string, taskId: string, title: string): ChangeTaskTitleActionType => {
     return {type: 'CHANGE-TASK-TITLE', payload: {todolistId, taskId, title}} as const

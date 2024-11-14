@@ -1,13 +1,10 @@
 import {useEffect, useState} from 'react';
-import axios from 'axios';
 import {TaskType, todolistsApi, TodolistType} from '../api/todolists-api';
 
 
 export default {
     title: 'Todolist API'
 }
-
-
 
 
 export const GetTodolists = () => {
@@ -26,10 +23,10 @@ export const GetTodolists = () => {
             return (
                 <table>
                     <tr>
-                        <th><b style={{ color: 'green' }}>Title:</b> {item.title}</th>
+                        <th><b style={{color: 'green'}}>Title:</b> {item.title}</th>
                     </tr>
                     <tr>
-                        <td><b style={{ color: 'green' }}>Id:</b> {item.id}</td>
+                        <td><b style={{color: 'green'}}>Id:</b> {item.id}</td>
                     </tr>
                 </table>
             )
@@ -51,7 +48,7 @@ export const CreateTodolists = () => {
         setTitle('')
     }
     return <div>
-        <input type="text" placeholder={'Введите текст'} onChange={e => setTitle(e.currentTarget.value)} />
+        <input type="text" placeholder={'Введите текст'} onChange={e => setTitle(e.currentTarget.value)}/>
         <button onClick={onClickHander}>Создать тудулист</button>
         <h1>{state}</h1>
     </div>
@@ -79,7 +76,7 @@ export const DeleteTodolist = () => {
     }, []);
     return <>
         <input type="text" placeholder={'введите иди того тудулиста которого хотите удалить'}
-            onChange={(e) => setTodolistId(e.currentTarget.value)} />
+               onChange={(e) => setTodolistId(e.currentTarget.value)}/>
         <button onClick={onClickHandler}>Удалить тудулист</button>
         <div>
             <h4>Список тудулистов:</h4>
@@ -88,11 +85,11 @@ export const DeleteTodolist = () => {
                 return (
                     <table>
                         <tr>
-                            <b style={{ color: 'green' }}>Title:</b>
+                            <b style={{color: 'green'}}>Title:</b>
                             <th> {item.title}</th>
                         </tr>
                         <tr>
-                            <b style={{ color: 'green' }}>Id:</b>
+                            <b style={{color: 'green'}}>Id:</b>
                             <td> {item.id}</td>
                         </tr>
                     </table>
@@ -117,7 +114,7 @@ export const UpdateTodolist = () => {
             })
     }, []);
     const onClickHandler = () => {
-        todolistsApi.updateTodolistAPI(todolistId,title)
+        todolistsApi.updateTodolistAPI(todolistId, title)
             .then(res => {
                 console.log(res)
                 setValue('Тудулист изменен')
@@ -131,9 +128,9 @@ export const UpdateTodolist = () => {
     }
     return <>
         <input style={styleIut} type="text" placeholder={'Введите id тудулиста который вы хотите удалить'}
-            onChange={(e) => setTodolistId(e.currentTarget.value)} />
+               onChange={(e) => setTodolistId(e.currentTarget.value)}/>
         <input style={styleIut} type="text" placeholder={'Введите текст чтобы изменить титл'}
-            onChange={(e) => setTitle(e.currentTarget.value)} />
+               onChange={(e) => setTitle(e.currentTarget.value)}/>
         <button onClick={onClickHandler}>Изменить тудулист</button>
         <h3>Список тудулистов:</h3>
         {!!value ? value : state?.map(item => {
@@ -141,11 +138,11 @@ export const UpdateTodolist = () => {
             return (
                 <table>
                     <tr>
-                        <b style={{ color: 'green' }}>Title:</b>
+                        <b style={{color: 'green'}}>Title:</b>
                         <th> {item.title}</th>
                     </tr>
                     <tr>
-                        <b style={{ color: 'green' }}>Id:</b>
+                        <b style={{color: 'green'}}>Id:</b>
                         <td> {item.id}</td>
                     </tr>
                 </table>
@@ -165,25 +162,25 @@ export const GetTasks = () => {
     }
     return <>
         <input type="text" placeholder={'Введите ид тудулиста чтобы получить таски'}
-            onChange={(e) => setTodolistId(e.currentTarget.value)} />
+               onChange={(e) => setTodolistId(e.currentTarget.value)}/>
         <button onClick={onClickHandler}>Дай Таски</button>
         {state.map(task => <p>{task.title}</p>)}
     </>
 }
 export const CreateTasks = () => {
     const [todolistId, setTodolistId] = useState<string>('')
-    const [title, setTitle] = useState<string>('')
+    const [taskTitle, setTaskTitle] = useState<string>('')
     const [value, setValue] = useState<null | string>(null)
     const onClickHandler = () => {
-        todolistsApi.createTasks(todolistId,title)
+        todolistsApi.createTask(todolistId, taskTitle)
             .then(res => {
                 console.log(res)
                 setValue('Таска создана')
             })
     }
     return <>
-        <input type="text" placeholder={'Введите ид тудулиста'} onChange={(e) => setTodolistId(e.currentTarget.value)} />
-        <input type="text" placeholder={'Введите титлу'} onChange={(e) => setTitle(e.currentTarget.value)} />
+        <input type="text" placeholder={'Введите ид тудулиста'} onChange={(e) => setTodolistId(e.currentTarget.value)}/>
+        <input type="text" placeholder={'Введите титлу'} onChange={(e) => setTaskTitle(e.currentTarget.value)}/>
         <button onClick={onClickHandler}>Создать таску</button>
         <h3>{value}</h3>
     </>
@@ -200,8 +197,8 @@ export const DeleteTasks = () => {
             })
     }
     const onclickDeleteHandler = () => {
-        if(todolistId.length!==0){
-            todolistsApi.deleteTask(todolistId,taskId)
+        if (todolistId.length !== 0) {
+            todolistsApi.deleteTask(todolistId, taskId)
                 .then(res => {
                     console.log(res)
                     setValue('Таска удалена')
@@ -209,10 +206,10 @@ export const DeleteTasks = () => {
         }
     }
     return <>
-        <input type="text" placeholder={'Введите тудулист'} onChange={(e) => setTodolistId(e.currentTarget.value)} />
+        <input type="text" placeholder={'Введите тудулист'} onChange={(e) => setTodolistId(e.currentTarget.value)}/>
         <button onClick={onClickHandler}>Получить тудулисты</button>
         <div>
-            <input type="text" placeholder={'Введите ид таски'} onChange={(e) => setTaskId(e.currentTarget.value)} />
+            <input type="text" placeholder={'Введите ид таски'} onChange={(e) => setTaskId(e.currentTarget.value)}/>
             <button onClick={onclickDeleteHandler}>Удалить Таску</button>
         </div>
 
@@ -220,36 +217,51 @@ export const DeleteTasks = () => {
             return (
                 <table>
                     <tr>
-                        <th><b style={{ color: 'green' }}>Title:</b> {item.title}</th>
+                        <th><b style={{color: 'green'}}>Title:</b> {item.title}</th>
                     </tr>
                     <tr>
-                        <td><b style={{ color: 'green' }}>Id:</b> {item.id}</td>
+                        <td><b style={{color: 'green'}}>Id:</b> {item.id}</td>
                     </tr>
                 </table>
             )
         })}
     </>
 }
-export const UpdateTasks=()=>{
+export const UpdateTasks = () => {
     const [todolistId, setTodolistId] = useState<string>('')
     const [taskId, setTaskId] = useState<string>('')
     const [state, setState] = useState<TaskType[]>([])
     const [value, setValue] = useState<null | string>(null)
-    const [title,setTitle]=useState<string>('')
+    const [title, setTitle] = useState<string>('')
 
-    const getTodolistHandler=()=>{
+    const getTodolistHandler = () => {
         todolistsApi.getTasks(todolistId)
             .then(res => {
                 console.log(res.data.items)
                 setState(res.data.items)
             })
     }
-    const changeTaskHandler=()=>{
-const {description,completed,status,priority,startDate,deadline} = state.filter(item=>item.id===taskId)[0]
-       todolistsApi.updateTask(todolistId,taskId,{title,description,completed,status,priority,startDate,deadline})
-           .then(res => {
-               setValue('Все изменилось')
-           })
+    const changeTaskHandler = () => {
+        const {
+            description,
+            completed,
+            status,
+            priority,
+            startDate,
+            deadline
+        } = state.filter(item => item.id === taskId)[0]
+        todolistsApi.updateTask(todolistId, taskId, {
+            title,
+            description,
+            completed,
+            status,
+            priority,
+            startDate,
+            deadline
+        })
+            .then(res => {
+                setValue('Все изменилось')
+            })
     }
 
     return <>
@@ -261,7 +273,7 @@ const {description,completed,status,priority,startDate,deadline} = state.filter(
         <div>
             <input type="text" placeholder={'Введите Таск Ид'}
                    onChange={(e) => setTaskId(e.currentTarget.value)}/>
-            <input type="text" placeholder={'Измени заголовок'} onChange={(e)=>setTitle(e.currentTarget.value)} />
+            <input type="text" placeholder={'Измени заголовок'} onChange={(e) => setTitle(e.currentTarget.value)}/>
             <button onClick={changeTaskHandler}>Change Tasks</button>
         </div>
         {value ? value : state.map(item => {
