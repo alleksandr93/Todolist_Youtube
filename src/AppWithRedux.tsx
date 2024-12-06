@@ -1,4 +1,4 @@
-import React, {memo, useCallback} from 'react';
+import React, {memo, useCallback, useEffect} from 'react';
 import './App.css';
 import {Todolist} from './Todolist';
 import {AddItemForm} from './AddItemForm';
@@ -11,7 +11,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import {addTodolistAC, TodolistDomainType} from './state/todolists-reduser';
+import {addTodolistAC, fetchTodolistsTС, TodolistDomainType} from './state/todolists-reduser';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootState} from './state/store';
 import {TaskType} from './api/todolists-api';
@@ -22,15 +22,17 @@ export type TaskStateType = {
 }
 
 
-export const AppWithRedux= memo(() =>{
-    console.log('App with Redux');
+export const AppWithRedux = memo(() => {
+    useEffect(() => {
+        dispatch(fetchTodolistsTС())
+    }, []);
     const dispatch = useDispatch()
-    const todolists = useSelector<AppRootState,Array<TodolistDomainType>>(state => state.todolists)
+    const todolists = useSelector<AppRootState, Array<TodolistDomainType>>(state => state.todolists)
     const addTodolist = useCallback((title: string) => {
         const action = addTodolistAC(title)
         dispatch(action)
 
-    },[dispatch])
+    }, [dispatch])
     return (
         <div className="App">
             <AppBar position="static">
@@ -58,7 +60,7 @@ export const AppWithRedux= memo(() =>{
                     {todolists.map(tl => {
                         return <Grid item key={tl.id}>
                             <Paper elevation={5} sx={{padding: '10px'}}>
-                                <Todolist todolists ={tl}/>
+                                <Todolist todolists={tl}/>
                             </Paper>
                         </Grid>
                     })}

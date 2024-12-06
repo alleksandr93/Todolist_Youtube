@@ -1,4 +1,4 @@
-import React, {memo, useCallback} from 'react';
+import React, {memo, useCallback, useEffect} from 'react';
 import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
 import IconButton from '@mui/material/IconButton';
@@ -13,7 +13,7 @@ import {
     FilterValueType,
     removeTodolistAC, TodolistDomainType
 } from './state/todolists-reduser';
-import {addTaskAC} from './state/tasks-reduser';
+import {addTaskAC, fetchTasksTС} from './state/tasks-reduser';
 import {Task} from './Task';
 import {TaskStatuses} from './api/todolists-api';
 import {TaskStateType} from './AppWithRedux';
@@ -28,6 +28,9 @@ export const Todolist = memo((props: PropsType) => {
     const {id,title,filter}=props.todolists
     const dispatch = useDispatch()
     const tasks = useSelector<AppRootState, TaskStateType>(state => state.tasks)
+    useEffect(() => {
+        dispatch(fetchTasksTС(id))
+    }, []);
 
     let tasksForTodolist = tasks[id]
     if (filter === 'Completed') {
