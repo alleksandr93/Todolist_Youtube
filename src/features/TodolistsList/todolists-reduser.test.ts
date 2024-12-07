@@ -27,8 +27,14 @@ test('user reducer should be removed', () => {
 test('user reducer should be added', () => {
     const newTodolist = 'New Todolist'
 
-    const endState = todolistsReducer(startState, addTodolistAC(newTodolist))
-    expect(endState.length).toBe(3)
+    const endState = todolistsReducer([], addTodolistAC({
+        id:'1',
+        title:newTodolist,
+        addedDate: '',
+        order: 0,
+    }))
+
+    expect(endState.length).toBe(1)
     expect(endState[0].title).toBe(newTodolist)
 })
 test('correct todolist change its name', () => {
@@ -47,7 +53,7 @@ test('correct filter of todolist should be changed', () => {
     expect(endState[1].filter).toBe(newFilter)
 
 })
-test('todolists should be set to the state', () => {
+test('Todolists should be set to the state', () => {
     const endState = todolistsReducer([], setTodolistsAC(startState))
 
     expect(endState.length).toBe(2)

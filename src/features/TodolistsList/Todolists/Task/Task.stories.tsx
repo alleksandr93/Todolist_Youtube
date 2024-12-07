@@ -1,9 +1,10 @@
-import {Task} from './Task';
 import {useSelector} from 'react-redux';
-import {AppRootState} from './state/store';
-import {TaskStateType} from './AppWithRedux';
-import {ReduxStoreProviderDecorator} from './stories/ReduxStoreProviderDecorator';
-import {TaskStatuses, TodoTaskPriorities} from './api/todolists-api';
+import {AppRootState} from '../../../../app/store';
+import {TaskStateType} from '../../../../app/App';
+import {ReduxStoreProviderDecorator} from '../../../../stories/ReduxStoreProviderDecorator';
+import {TaskStatuses, TodoTaskPriorities} from '../../../../api/todolists-api';
+import {Task} from './Task';
+
 
 export default {
     title: 'Task Component',

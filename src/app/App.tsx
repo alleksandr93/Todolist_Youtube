@@ -1,20 +1,20 @@
-import React, {memo, useCallback, useEffect} from 'react';
-import './App.css';
-import {Todolist} from './Todolist';
-import {AddItemForm} from './AddItemForm';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
-import {addTodolistAC, fetchTodolistsTС, TodolistDomainType} from './state/todolists-reduser';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import {memo, useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {AppRootState} from './state/store';
-import {TaskType} from './api/todolists-api';
+import {AddItemForm} from '../components/AddItemForm/AddItemForm';
+import {TaskType} from '../api/todolists-api';
+import './App.css';
+import {AppRootState} from './store';
+import {addTodolistTC, fetchTodolistsTС, TodolistDomainType} from '../features/TodolistsList/todolists-reduser';
+import {Todolist} from '../features/TodolistsList/Todolists/Todolist';
 
 
 export type TaskStateType = {
@@ -22,17 +22,15 @@ export type TaskStateType = {
 }
 
 
-export const AppWithRedux = memo(() => {
+export const App = memo(() => {
     useEffect(() => {
         dispatch(fetchTodolistsTС())
     }, []);
     const dispatch = useDispatch()
     const todolists = useSelector<AppRootState, Array<TodolistDomainType>>(state => state.todolists)
     const addTodolist = useCallback((title: string) => {
-        const action = addTodolistAC(title)
-        dispatch(action)
-
-    }, [dispatch])
+        dispatch(addTodolistTC(title))
+    }, [])
     return (
         <div className="App">
             <AppBar position="static">
@@ -71,4 +69,4 @@ export const AppWithRedux = memo(() => {
     );
 })
 
-export default AppWithRedux;
+export default App;
