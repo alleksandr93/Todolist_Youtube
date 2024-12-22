@@ -1,19 +1,23 @@
 import { Provider } from 'react-redux'
-import { AppRootState } from '../app/store'
-import { combineReducers, legacy_createStore as createStore } from 'redux'
+
+import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux'
 import { tasksReduser } from '../features/TodolistsList/tasks-reduser'
 import { todolistsReducer } from '../features/TodolistsList/todolists-reduser'
 import { TaskStatuses, TodoTaskPriorities } from '../api/todolists-api'
+import thunk from 'redux-thunk'
+import type { AppRootState } from '../app/store'
+import { appReducer } from '../app/app-reducer'
 
 const rootReducer = combineReducers({
   todolists: todolistsReducer,
   tasks: tasksReduser,
+  app: appReducer,
 })
 
 const initialGlobaleState: AppRootState = {
   todolists: [
     { id: 'todolistId1', title: 'What to learn', entityStatus: 'idle', filter: 'All', addedDate: '', order: 0 },
-    { id: 'todolistId2', title: 'What to buy', entityStatus: 'idle', filter: 'All', addedDate: '', order: 0 },
+    { id: 'todolistId2', title: 'What to buy', entityStatus: 'loading', filter: 'All', addedDate: '', order: 0 },
   ],
   tasks: {
     todolistId1: [
@@ -92,7 +96,7 @@ const initialGlobaleState: AppRootState = {
   },
 }
 // @ts-ignore
-export const storyBookStore = createStore(rootReducer, initialGlobaleState)
+export const storyBookStore = createStore(rootReducer, initialGlobaleState, applyMiddleware(thunk))
 
 export const ReduxStoreProviderDecorator = (storyFn: any) => {
   return <Provider store={storyBookStore}>{storyFn()}</Provider>

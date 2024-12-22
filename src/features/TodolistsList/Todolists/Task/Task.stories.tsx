@@ -27,7 +27,14 @@ export const TaskBaseExample = () => {
         order: 0,
         priority: TodoTaskPriorities.Low,
       }}
-      todolistId={'todolistsId1'}
+      todolist={{
+        id: 'todolistID1',
+        title: 'What to learn',
+        entityStatus: 'idle',
+        filter: 'All',
+        addedDate: '',
+        order: 0,
+      }}
     />
   )
 }

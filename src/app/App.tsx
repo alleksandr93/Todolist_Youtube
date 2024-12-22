@@ -4,32 +4,29 @@ import Button from '@mui/material/Button'
 import Container from '@mui/material/Container'
 import Grid from '@mui/material/Grid'
 import IconButton from '@mui/material/IconButton'
-import Paper from '@mui/material/Paper'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
-import { memo, useCallback, useEffect } from 'react'
+import { memo, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AddItemForm } from '../components/AddItemForm/AddItemForm'
 import { TaskType } from '../api/todolists-api'
 import './App.css'
-import { AppRootState } from './store'
-import { addTodolistTC, fetchTodolistsTС, TodolistDomainType } from '../features/TodolistsList/todolists-reduser'
-import { Todolist } from '../features/TodolistsList/Todolists/Todolist'
+import { addTodolistTC } from '../features/TodolistsList/todolists-reduser'
 import { LinearProgress } from '@mui/material'
 import { CustomizedSnackbars } from '../components/ErrorSnackBar/ErrorSnackBar'
+import { TodolistLIst } from '../features/TodolistsList/TodolistLIst'
+import type { AppRootState } from './store'
 import type { RequestStatusType } from './app-reducer'
 
 export type TaskStateType = {
   [key: string]: Array<TaskType>
 }
-
-export const App = memo(() => {
+type PropsType = {
+  demo?: boolean
+}
+export const App = memo(({ demo = false, ...props }: PropsType) => {
   const status = useSelector<AppRootState, RequestStatusType>(state => state.app.status)
-  useEffect(() => {
-    dispatch(fetchTodolistsTС())
-  }, [])
   const dispatch = useDispatch()
-  const todolists = useSelector<AppRootState, Array<TodolistDomainType>>(state => state.todolists)
   const addTodolist = useCallback((title: string) => {
     dispatch(addTodolistTC(title))
   }, [])
@@ -55,15 +52,7 @@ export const App = memo(() => {
           <AddItemForm addItem={addTodolist} />
         </Grid>
         <Grid container spacing={3}>
-          {todolists.map(tl => {
-            return (
-              <Grid item key={tl.id}>
-                <Paper elevation={5} sx={{ padding: '10px' }}>
-                  <Todolist todolists={tl} />
-                </Paper>
-              </Grid>
-            )
-          })}
+          <TodolistLIst demo={demo} />
         </Grid>
       </Container>
     </div>

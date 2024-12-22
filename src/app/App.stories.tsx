@@ -7,5 +7,5 @@ export default {
   decorators: [ReduxStoreProviderDecorator],
 }
 export const AppWithReduxBAseExample = () => {
-  return <App />
+  return <App demo={true} />
 }

@@ -6,30 +6,31 @@ import { useDispatch } from 'react-redux'
 import { TaskStatuses, TaskType } from '../../../../api/todolists-api'
 import { EditableSpan } from '../../../../components/EditableSpan/EditableSpan'
 import { removeTaskTC, updateTaskTC } from '../../tasks-reduser'
+import { TodolistDomainType } from '../../todolists-reduser'
 
 type PropsType = {
   task: TaskType
-  todolistId: string
+  todolist: TodolistDomainType
 }
 export const Task = memo((props: PropsType) => {
   const dispatch = useDispatch()
 
   const removeHandler = useCallback(() => {
-    dispatch(removeTaskTC(props.todolistId, props.task.id))
+    dispatch(removeTaskTC(props.todolist.id, props.task.id))
   }, [])
 
   const onChangeStatusHandler = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       dispatch(
-        updateTaskTC(props.todolistId, props.task.id, {
+        updateTaskTC(props.todolist.id, props.task.id, {
           status: event.currentTarget.checked ? TaskStatuses.Completed : TaskStatuses.New,
         }),
       )
     },
-    [dispatch, props.todolistId, props.task.id],
+    [dispatch, props.todolist.id, props.task.id],
   )
   const onChangeTitleHandler = useCallback((newValue: string) => {
-    dispatch(updateTaskTC(props.todolistId, props.task.id, { title: newValue }))
+    dispatch(updateTaskTC(props.todolist.id, props.task.id, { title: newValue }))
   }, [])
 
   return (
@@ -38,6 +39,7 @@ export const Task = memo((props: PropsType) => {
         onChange={onChangeStatusHandler}
         checked={props.task.status === TaskStatuses.Completed}
         color="primary"
+        disabled={props.todolist.entityStatus === 'loading'}
       />
       <EditableSpan oldTitle={props.task.title} onChange={onChangeTitleHandler} />
       <IconButton aria-label="delete" size="small" onClick={removeHandler}>

@@ -5,8 +5,9 @@ import IconButton from '@mui/material/IconButton'
 
 type AddItemFromPropsType = {
   addItem: (todolistId: string) => void
+  disabled?: boolean
 }
-export const AddItemForm = memo((props: AddItemFromPropsType) => {
+export const AddItemForm = memo(({ disabled = false, ...props }: AddItemFromPropsType) => {
   const [title, setTitle] = useState('')
   const [error, setError] = useState<string | null>(null)
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -32,6 +33,7 @@ export const AddItemForm = memo((props: AddItemFromPropsType) => {
   return (
     <div>
       <TextField
+        disabled={disabled}
         size="small"
         label={!error ? 'Enter value' : 'error'}
         variant="outlined"
@@ -40,7 +42,7 @@ export const AddItemForm = memo((props: AddItemFromPropsType) => {
         onChange={onChangeHandler}
         onKeyPress={onKeyPressHandler}
       />
-      <IconButton onClick={addTask} color="primary">
+      <IconButton onClick={addTask} color="primary" disabled={disabled}>
         <ControlPoint />
       </IconButton>
       {error && <div className={'error-message'}>{error}</div>}

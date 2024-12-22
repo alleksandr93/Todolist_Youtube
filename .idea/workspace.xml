@@ -4,42 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1c2255b-8de6-4bd0-862d-20c3fdda6f69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/app-reducer.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/app-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ErrorSnackBar/ErrorSnackBar.tsx" afterDir="false" />
+    <list default="true" id="b1c2255b-8de6-4bd0-862d-20c3fdda6f69" name="Changes" comment="15 part 1">
+      <change afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistLIst.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/error-utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.storybook/preview.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/todolists-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/todolists-api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditableSpan/EditableSpan.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditableSpan/EditableSpan.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/EditableSpan/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditableSpan/EditableSpan.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ErrorSnackBar/ErrorSnackBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ErrorSnackBar/ErrorSnackBar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Task/Task.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Task/Task.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Task/Task.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reduser.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reduser.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reduser.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/todolists-reduser.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/todolists-reduser.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/todolists-reduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/todolists-reduser.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/todolists-tasks-reduser.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/todolists-tasks-reduser.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reportWebVitals.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/stories/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/ReduxStoreProviderDecorator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stories/todolists-api.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/todolists-api.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,50 +65,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Jest. property with todolistID should be deleted.executor": "Run",
-    "Jest.correct error message should be set.executor": "Run",
-    "Jest.correct filter of todolist should be changed.executor": "Run",
-    "Jest.correct status should be set.executor": "Run",
-    "Jest.correct task should be added to correct array.executor": "Run",
-    "Jest.correct task should be deleted from correct array.executor": "Run",
-    "Jest.correct todolist change its name.executor": "Debug",
-    "Jest.empty arrays should be added when set todolists.executor": "Run",
-    "Jest.ids should be eauals.executor": "Run",
-    "Jest.new property with array should be added when new todolist is added.executor": "Run",
-    "Jest.renders learn react link.executor": "Run",
-    "Jest.status of specified task should be changed.executor": "Run",
-    "Jest.tasks should be added for todolist.executor": "Run",
-    "Jest.title of specified task should be changed.executor": "Run",
-    "Jest.todolists should be set to the state.executor": "Run",
-    "Jest.user reducer should be added.executor": "Run",
-    "Jest.user reducer should be removed.executor": "Run",
-    "Jest.user reducer should decrement only childrenCount (1).executor": "Run",
-    "Jest.user reducer should decrement only childrenCount.executor": "Run",
-    "Jest.user reducer should decrement only user.executor": "Run",
-    "Jest.user reducer should increment only age (1).executor": "Run",
-    "Jest.user reducer should increment only age.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Learn/incubator/Todolist_Youtube/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "C:/Learn/incubator/Todolist_Youtube/node_modules/react-scripts",
-    "nodejs_package_manager_path": "yarn",
-    "npm.eject.executor": "Run",
-    "npm.start.executor": "Run",
-    "npm.storybook.executor": "Run",
-    "npm.test.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Learn\\incubator\\Todolist_Youtube\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "C:\\Learn\\incubator\\Todolist_Youtube\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Jest. property with todolistID should be deleted.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct error message should be set.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct filter of todolist should be changed.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct status should be set.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct task should be added to correct array.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct task should be deleted from correct array.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct todolist change its name.executor&quot;: &quot;Debug&quot;,
+    &quot;Jest.empty arrays should be added when set todolists.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.ids should be eauals.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.new property with array should be added when new todolist is added.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.renders learn react link.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.status of specified task should be changed.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.tasks should be added for todolist.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.title of specified task should be changed.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.todolists should be set to the state.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should be added.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should be removed.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should decrement only childrenCount (1).executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should decrement only childrenCount.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should decrement only user.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should increment only age (1).executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should increment only age.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Learn/incubator/Todolist_Youtube/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Learn/incubator/Todolist_Youtube/node_modules/react-scripts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.eject.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;npm.storybook.executor&quot;: &quot;Run&quot;,
+    &quot;npm.test.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Learn\\incubator\\Todolist_Youtube\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Learn\\incubator\\Todolist_Youtube\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Learn\incubator\Todolist_Youtube\src" />
@@ -162,18 +147,6 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="new property with array should be added when new todolist is added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/state/tasks-reduser.test.ts" />
-      <test-names>
-        <test-name value="new property with array should be added when new todolist is added" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <configuration name="status of specified task should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -198,13 +171,23 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="storybook" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="storybook" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.storybook" />
         <item itemvalue="Jest.correct status should be set" />
         <item itemvalue="Jest.correct error message should be set" />
         <item itemvalue="Jest.title of specified task should be changed" />
         <item itemvalue="Jest.status of specified task should be changed" />
-        <item itemvalue="Jest.new property with array should be added when new todolist is added" />
       </list>
     </recent_temporary>
   </component>
@@ -249,7 +232,9 @@
       <workItem from="1733491073686" duration="20244000" />
       <workItem from="1733564032337" duration="662000" />
       <workItem from="1734300098708" duration="2895000" />
-      <workItem from="1734303300498" duration="7091000" />
+      <workItem from="1734303300498" duration="7249000" />
+      <workItem from="1734425322509" duration="10784000" />
+      <workItem from="1734864790993" duration="6372000" />
     </task>
     <task id="LOCAL-00001" summary="08 Reducer">
       <option name="closed" value="true" />
@@ -323,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733564670328</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="15 part 1">
+      <option name="closed" value="true" />
+      <created>1734310621506</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734310621506</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,6 +344,19 @@
     <MESSAGE value="13 - 03 Last Lesson &lt; Don't work &quot;ExapmleTask&quot; in storybook" />
     <MESSAGE value="14 Thunk part 1" />
     <MESSAGE value="14 Thunk part 3 refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="14 Thunk part 3 refactor" />
+    <MESSAGE value="15 part 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="15 part 1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/features/TodolistsList/Todolists/Task/Task.tsx</url>
+          <line>11</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
