@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b1c2255b-8de6-4bd0-862d-20c3fdda6f69" name="Changes" comment="15 part 1">
+      <change afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistLIst.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/error-utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/todolists-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/todolists-api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditableSpan/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditableSpan/EditableSpan.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ErrorSnackBar/ErrorSnackBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ErrorSnackBar/ErrorSnackBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Task/Task.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Task/Task.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolists/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reduser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/todolists-reduser.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/todolists-reduser.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/todolists-reduser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/todolists-reduser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/ReduxStoreProviderDecorator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/ReduxStoreProviderDecorator.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;alleksandr93&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/alleksandr93/Todolist_Youtube.git&quot;,
+    &quot;accountId&quot;: &quot;918b2e18-4137-48d7-b651-45cff8f7b49d&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2inlBKILXxCIVdQftMVbVXi9DV1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Jest. property with todolistID should be deleted.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct error message should be set.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct filter of todolist should be changed.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct status should be set.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct task should be added to correct array.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct task should be deleted from correct array.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct todolist change its name.executor&quot;: &quot;Debug&quot;,
+    &quot;Jest.empty arrays should be added when set todolists.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.ids should be eauals.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.new property with array should be added when new todolist is added.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.renders learn react link.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.status of specified task should be changed.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.tasks should be added for todolist.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.title of specified task should be changed.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.todolists should be set to the state.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should be added.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should be removed.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should decrement only childrenCount (1).executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should decrement only childrenCount.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should decrement only user.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should increment only age (1).executor&quot;: &quot;Run&quot;,
+    &quot;Jest.user reducer should increment only age.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Learn/incubator/Todolist_Youtube/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Learn/incubator/Todolist_Youtube/node_modules/react-scripts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.eject.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;npm.storybook.executor&quot;: &quot;Run&quot;,
+    &quot;npm.test.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Learn\\incubator\\Todolist_Youtube\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Learn\\incubator\\Todolist_Youtube\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Learn\incubator\Todolist_Youtube\src" />
+      <recent name="C:\Learn\incubator\Todolist_Youtube\src\state" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Learn\incubator\Todolist_Youtube\src\app" />
+      <recent name="C:\Learn\incubator\Todolist_Youtube\src\features\TodolistsList" />
+      <recent name="C:\Learn\incubator\Todolist_Youtube\src\features\TodolistsList\Todolists\Task" />
+      <recent name="C:\Learn\incubator\Todolist_Youtube\src\features\TodolistsList\Todolists" />
+      <recent name="C:\Learn\incubator\Todolist_Youtube\src\features\Todolists" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jest.correct status should be set">
+    <configuration name="correct error message should be set" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/app/app-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct error message should be set" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="correct status should be set" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/app/app-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct status should be set" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="status of specified task should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/state/tasks-reduser.test.ts" />
+      <test-names>
+        <test-name value="status of specified task should be changed" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="title of specified task should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/state/tasks-reduser.test.ts" />
+      <test-names>
+        <test-name value="title of specified task should be changed" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="storybook" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="storybook" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.storybook" />
+        <item itemvalue="Jest.correct status should be set" />
+        <item itemvalue="Jest.correct error message should be set" />
+        <item itemvalue="Jest.title of specified task should be changed" />
+        <item itemvalue="Jest.status of specified task should be changed" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-WS-242.20224.342" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b1c2255b-8de6-4bd0-862d-20c3fdda6f69" name="Changes" comment="" />
+      <created>1720134085498</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720134085498</updated>
+      <workItem from="1720134087373" duration="511000" />
+      <workItem from="1724776908270" duration="2684000" />
+      <workItem from="1724779627255" duration="7923000" />
+      <workItem from="1725499285061" duration="8939000" />
+      <workItem from="1727512699369" duration="8378000" />
+      <workItem from="1728400103413" duration="3135000" />
+      <workItem from="1728490446417" duration="11996000" />
+      <workItem from="1729706535193" duration="911000" />
+      <workItem from="1729707487257" duration="283000" />
+      <workItem from="1729707786537" duration="8844000" />
+      <workItem from="1730122274148" duration="4404000" />
+      <workItem from="1730290042428" duration="10929000" />
+      <workItem from="1730390803492" duration="1740000" />
+      <workItem from="1730451220015" duration="4440000" />
+      <workItem from="1730547572117" duration="2310000" />
+      <workItem from="1730762405420" duration="5458000" />
+      <workItem from="1731057590045" duration="5298000" />
+      <workItem from="1731322757849" duration="2359000" />
+      <workItem from="1731585555826" duration="8198000" />
+      <workItem from="1733464050524" duration="1887000" />
+      <workItem from="1733465975077" duration="3080000" />
+      <workItem from="1733469101974" duration="3841000" />
+      <workItem from="1733489581895" duration="4000" />
+      <workItem from="1733491073686" duration="20244000" />
+      <workItem from="1733564032337" duration="662000" />
+      <workItem from="1734300098708" duration="2895000" />
+      <workItem from="1734303300498" duration="7249000" />
+      <workItem from="1734425322509" duration="10784000" />
+      <workItem from="1734864790993" duration="6372000" />
+    </task>
+    <task id="LOCAL-00001" summary="08 Reducer">
+      <option name="closed" value="true" />
+      <created>1724793747776</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1724793747777</updated>
+    </task>
+    <task id="LOCAL-00002" summary="09 Reducer tasks">
+      <option name="closed" value="true" />
+      <created>1725509063363</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725509063363</updated>
+    </task>
+    <task id="LOCAL-00003" summary="10 Reducer Redux">
+      <option name="closed" value="true" />
+      <created>1727522218992</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727522218992</updated>
+    </task>
+    <task id="LOCAL-00004" summary="11 useCallback, memo">
+      <option name="closed" value="true" />
+      <created>1728502727246</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1728502727246</updated>
+    </task>
+    <task id="LOCAL-00005" summary="12 storybook">
+      <option name="closed" value="true" />
+      <created>1729717377227</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1729717377227</updated>
+    </task>
+    <task id="LOCAL-00006" summary="13 - 01 Rest API, AXIOS,API">
+      <option name="closed" value="true" />
+      <created>1730767894802</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730767894803</updated>
+    </task>
+    <task id="LOCAL-00007" summary="13 - 03 Last Lesson &lt; Don't work &quot;ExapmleTask&quot; in storybook">
+      <option name="closed" value="true" />
+      <created>1731593810921</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1731593810921</updated>
+    </task>
+    <task id="LOCAL-00008" summary="14 Thunk part 1">
+      <option name="closed" value="true" />
+      <created>1733472309353</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733472309353</updated>
+    </task>
+    <task id="LOCAL-00009" summary="14 Thunk part 3 refactor">
+      <option name="closed" value="true" />
+      <created>1733564670327</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733564670328</updated>
+    </task>
+    <task id="LOCAL-00010" summary="15 part 1">
+      <option name="closed" value="true" />
+      <created>1734310621506</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1734310621506</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="08 Reducer" />
+    <MESSAGE value="09 Reducer tasks" />
+    <MESSAGE value="10 Reducer Redux" />
+    <MESSAGE value="11 useCallback, memo" />
+    <MESSAGE value="12 storybook" />
+    <MESSAGE value="13 - 01 Rest API, AXIOS,API" />
+    <MESSAGE value="13 - 03 Last Lesson &lt; Don't work &quot;ExapmleTask&quot; in storybook" />
+    <MESSAGE value="14 Thunk part 1" />
+    <MESSAGE value="14 Thunk part 3 refactor" />
+    <MESSAGE value="15 part 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="15 part 1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/features/TodolistsList/Todolists/Task/Task.tsx</url>
+          <line>11</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
