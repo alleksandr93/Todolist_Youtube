@@ -5,6 +5,7 @@ import {
   type AddTotodlistActionType,
   changeTodolistEntityStatusAC,
   type ChangeTodolistEntityStatusActionType,
+  type ClearDataActionType,
   type RemoveTodoListActionType,
   type SetTodolistsType,
 } from './todolists-reduser'
@@ -57,6 +58,8 @@ export const tasksReduser = (state: TaskStateType = initialState, action: Action
       return copyState
     case 'SET_TASKS':
       return { ...state, [action.todolistId]: action.tasks }
+    case 'CLEAR_DATA':
+      return {}
     default:
       return state
   }
@@ -165,5 +168,6 @@ type ActionType =
   | SetTodolistsType
   | ReturnType<typeof setTasksAC>
   | ChangeTodolistEntityStatusActionType
+  | ClearDataActionType
 
 type ThunkDispatch = Dispatch<ActionType | SetAppStatusActionType | SetAppErrorActionType>

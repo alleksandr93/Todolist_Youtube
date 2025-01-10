@@ -30,7 +30,6 @@ export const Todolist = memo(({ demo = false, ...props }: PropsType) => {
     if (demo) {
       return
     }
-    dispatch(fetchTasksTС(id))
   }, [])
   const tasks = useSelector<AppRootState, TaskStateType>(state => state.tasks)
   let tasksForTodolist = tasks[id]

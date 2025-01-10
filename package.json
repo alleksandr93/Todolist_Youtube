@@ -2,6 +2,7 @@
   "name": "todolist-youtube",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://alleksandr93.github.io/Todolist_Youtube",
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -15,11 +16,15 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@types/react-router-dom": "^5.3.3",
     "@types/uuid": "^10.0.0",
     "axios": "^1.7.7",
+    "formik": "^2.4.6",
+    "gh-pages": "^6.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-redux": "^9.1.2",
+    "react-router-dom": "^7.1.1",
     "react-scripts": "5.0.1",
     "redux": "4.2.1",
     "redux-thunk": "2.4.2",
@@ -27,6 +32,8 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+   "predeploy": "npm run build",
+   "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -34,6 +34,17 @@ export const todolistsApi = {
     return instance.put<ResponseType<TaskType>>(`todo-lists/${todolistId}/tasks/${taskId}`, model)
   },
 }
+export const authApi = {
+  login(data: LoginParamsType) {
+    return instance.post<ResponseType<{ token?: string; userId?: number }>>('auth/login', data)
+  },
+  me() {
+    return instance.get<ResponseType<{ id: number; email: string; login: string }>>('auth/me')
+  },
+  logout() {
+    return instance.delete<ResponseType>('auth/login')
+  },
+}
 //types
 export type TodolistType = {
   id: string
@@ -89,4 +100,10 @@ export type UpdateTaskModelType = {
   priority: TodoTaskPriorities
   startDate: string
   deadline: string
+}
+export type LoginParamsType = {
+  email: string
+  password: string
+  rememberMe: boolean
+  captcha?: boolean
 }

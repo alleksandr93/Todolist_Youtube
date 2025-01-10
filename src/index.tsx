@@ -5,12 +5,14 @@ import reportWebVitals from './reportWebVitals'
 import App from './app/App'
 import { Provider } from 'react-redux'
 import { store } from './app/store'
+import { Login } from './features/Login/Login'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <Provider store={store}>
     <App />
+    {/*<Login />*/}
   </Provider>,
 )
 
