@@ -13,7 +13,7 @@ import {
   removeTodolistTC,
   TodolistDomainType,
 } from '../todolists-reduser'
-import { addTaskTC, fetchTasksTС } from '../tasks-reduser'
+import { addTaskTC } from '../tasks-reduser'
 import { TaskStatuses } from '../../../api/todolists-api'
 import { TaskStateType } from '../../../app/App'
 import { Task } from './Task/Task'
@@ -40,7 +40,7 @@ export const Todolist = memo(({ demo = false, ...props }: PropsType) => {
   }
   const changeFilter = useCallback(
     (value: FilterValueType) => {
-      const action = changeTodolistFilterAC(id, value)
+      const action = changeTodolistFilterAC({ id, filter: value })
       dispatch(action)
     },
     [dispatch, id],
