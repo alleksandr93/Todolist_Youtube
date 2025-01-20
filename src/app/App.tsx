@@ -14,7 +14,7 @@ import { CustomizedSnackbars } from '../components/ErrorSnackBar/ErrorSnackBar'
 import { TodolistLIst } from '../features/TodolistsList/TodolistLIst'
 import type { AppRootState } from './store'
 import { initializeAppTC, type RequestStatusType } from './app-reducer'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import { Login } from '../features/Login/Login'
 import { logoutTC } from '../features/Login/auth-reduser'
 
@@ -30,7 +30,9 @@ export const App = memo(({ demo = false, ...props }: PropsType) => {
   const isLoggedIn = useSelector<AppRootState, boolean>(status => status.auth.isLoggedIn)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(initializeAppTC())
+    if (!demo) {
+      dispatch(initializeAppTC())
+    }
   }, [])
   const logoutHandler = useCallback(() => {
     dispatch(logoutTC())
@@ -42,36 +44,34 @@ export const App = memo(({ demo = false, ...props }: PropsType) => {
   }
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <CustomizedSnackbars />
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Menu
-            </Typography>
-            {/* Пишем  component и to чтобы привязыть кномпу перехода к логинизации*/}
-            {isLoggedIn && (
-              <Button color="inherit" onClick={logoutHandler}>
-                Log Out
-              </Button>
-            )}
-          </Toolbar>
-        </AppBar>
-        {status === 'loading' && (
-          <LinearProgress style={{ position: 'absolute', top: '0', left: '0', width: '100%' }} color="primary" />
-        )}
-        <Container fixed>
-          <Routes>
-            <Route path={'/'} element={<TodolistLIst demo={demo} />} />
-            <Route path={'/login'} element={<Login />} />
-          </Routes>
-        </Container>
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <CustomizedSnackbars />
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Menu
+          </Typography>
+          {/* Пишем  component и to чтобы привязыть кномпу перехода к логинизации*/}
+          {isLoggedIn && (
+            <Button color="inherit" onClick={logoutHandler}>
+              Log Out
+            </Button>
+          )}
+        </Toolbar>
+      </AppBar>
+      {status === 'loading' && (
+        <LinearProgress style={{ position: 'absolute', top: '0', left: '0', width: '100%' }} color="primary" />
+      )}
+      <Container fixed>
+        <Routes>
+          <Route path={'/'} element={<TodolistLIst demo={demo} />} />
+          <Route path={'/login'} element={<Login />} />
+        </Routes>
+      </Container>
+    </div>
   )
 })
 

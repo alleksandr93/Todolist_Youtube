@@ -73,10 +73,12 @@
     "@storybook/react": "8.3.6",
     "@storybook/react-webpack5": "8.3.6",
     "@storybook/test": "8.3.6",
+    "@types/storybook-react-router": "^1.0.6",
     "eslint-plugin-storybook": "^0.10.1",
     "prettier": "3.4.2",
     "prop-types": "15.8.1",
     "storybook": "8.3.6",
+    "storybook-react-router": "^1.0.8",
     "webpack": "5.95.0"
   },
   "jest": {

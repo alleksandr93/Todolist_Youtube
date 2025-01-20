@@ -12,9 +12,10 @@ const rootReducer = combineReducers({
   app: appReducer,
   auth: authReduser,
 })
-
-export type AppRootState = ReturnType<typeof rootReducer>
-
+// Определяем возвращаемый state
+export type AppRootState = ReturnType<RootReducerType>
+// определяем тип самой функции для storebook
+export type RootReducerType = typeof rootReducer
 export const store = configureStore({
   reducer: rootReducer,
   middleware: getDefaultMiddleware => getDefaultMiddleware().prepend(thunk),
