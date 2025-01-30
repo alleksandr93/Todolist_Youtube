@@ -4,19 +4,24 @@ import { FormControl, FormControlLabel, FormGroup, FormLabel, IconButton, InputA
 import TextField from '@mui/material/TextField'
 import Checkbox from '@mui/material/Checkbox'
 import Button from '@mui/material/Button'
-import { useFormik } from 'formik'
+import { type FormikHelpers, useFormik } from 'formik'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
-import { useDispatch, useSelector } from 'react-redux'
-import { loginTС } from './auth-reduser'
-import type { AppRootState } from '../../app/store'
+import { useSelector } from 'react-redux'
+import { type AppRootState, useAppDispatch } from '../../app/store'
 import { Navigate } from 'react-router-dom'
+import { loginTC } from './auth-reduser'
 
+type FormValues = {
+  email: string
+  password: string
+  rememberMe: boolean
+  captcha: boolean
+}
 export const Login = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const isLoggedIn = useSelector<AppRootState, boolean>(state => state.auth.isLoggedIn)
   const [showPassword, setShowPassword] = useState(false)
-  console.log(isLoggedIn)
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword)
@@ -39,14 +44,20 @@ export const Login = () => {
       rememberMe: false,
       captcha: true,
     },
-    onSubmit: values => {
-      // alert(JSON.stringify(values))
-      dispatch(loginTС(values))
+    onSubmit: async (values: FormValues, formikHelpers: FormikHelpers<FormValues>) => {
+      const res = await dispatch(loginTC(values))
+      console.log(res)
+      if (loginTC.rejected.match(res)) {
+        if (res.payload?.fieldsErrors?.length) {
+          const error = res.payload.fieldsErrors[0]
+          formikHelpers.setFieldError(error.field, error.error)
+        } else {
+        }
+      }
     },
   })
 
   if (isLoggedIn) {
-    debugger
     return <Navigate to={'/'} />
   }
   return (

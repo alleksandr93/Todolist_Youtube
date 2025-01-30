@@ -18,7 +18,18 @@ export const handleServerAppError = <D>(
   }
   dispatch(setAppStatusAC({ status: 'failed' }))
 }
-export const handleServerNetworkError = (error: { message: string }, dispatch: Dispatch) => {
-  dispatch(setAppErrorAC({ error: error.message ? error.message : 'Some error occurred' }))
+export const handleServerNetworkError = (error: unknown, dispatch: Dispatch) => {
+  let errorMessage = 'Some error occurred'
+
+  if (typeof error === 'string') {
+    // Если error — строка, используем её как сообщение
+    errorMessage = error
+  } else if (error instanceof Error) {
+    // Если error — объект Error, используем его message
+    errorMessage = error.message
+  }
+
+  // Диспатчим ошибку и статус
+  dispatch(setAppErrorAC({ error: errorMessage }))
   dispatch(setAppStatusAC({ status: 'failed' }))
 }

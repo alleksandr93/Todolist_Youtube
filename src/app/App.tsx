@@ -14,7 +14,7 @@ import { CustomizedSnackbars } from '../components/ErrorSnackBar/ErrorSnackBar'
 import { TodolistLIst } from '../features/TodolistsList/TodolistLIst'
 import type { AppRootState } from './store'
 import { initializeAppTC, type RequestStatusType } from './app-reducer'
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { Login } from '../features/Login/Login'
 import { logoutTC } from '../features/Login/auth-reduser'
 

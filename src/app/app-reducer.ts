@@ -1,16 +1,25 @@
-import type { Dispatch } from 'redux'
 import { authApi } from '../api/todolists-api'
 import { setIsLoggedInAC } from '../features/Login/auth-reduser'
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
-const initialState = {
-  status: 'idle' as RequestStatusType,
-  error: null as null | string,
-  isInitialized: true,
-}
+export const initializeAppTC = createAsyncThunk('app/initializeApp', async (param, { dispatch, rejectWithValue }) => {
+  try {
+    const res = await authApi.me()
+    if (res.data.resultCode === 0) {
+      dispatch(setIsLoggedInAC({ value: true }))
+    } else {
+    }
+  } catch (error) {
+    rejectWithValue(null)
+  }
+})
 const slice = createSlice({
   name: 'app',
-  initialState,
+  initialState: {
+    status: 'idle',
+    error: null,
+    isInitialized: false,
+  } as InitialStateType,
   reducers: {
     setAppErrorAC(state, action: PayloadAction<{ error: string | null }>) {
       state.error = action.payload.error
@@ -18,25 +27,16 @@ const slice = createSlice({
     setAppStatusAC(state, action: PayloadAction<{ status: RequestStatusType }>) {
       state.status = action.payload.status
     },
-    setAppInitializedAC(state, action: PayloadAction<{ isInitialized: boolean }>) {
-      state.isInitialized = action.payload.isInitialized
-    },
+  },
+  extraReducers: builder => {
+    builder.addCase(initializeAppTC.fulfilled, state => {
+      state.isInitialized = true
+    })
   },
 })
 
 export const appReducer = slice.reducer
-export const { setAppErrorAC, setAppInitializedAC, setAppStatusAC } = slice.actions
-
-export const initializeAppTC = () => (dispatch: Dispatch) => {
-  authApi.me().then(res => {
-    if (res.data.resultCode === 0) {
-      dispatch(setIsLoggedInAC({ value: true }))
-    } else {
-      dispatch(setAppInitializedAC({ isInitialized: false }))
-    }
-    dispatch(setAppInitializedAC({ isInitialized: true }))
-  })
-}
+export const { setAppErrorAC, setAppStatusAC } = slice.actions
 
 export type RequestStatusType = 'idle' | 'loading' | 'successes' | 'failed'
 export type InitialStateType = {

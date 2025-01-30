@@ -1,12 +1,12 @@
 import { tasksReduser } from './tasks-reduser'
-import { addTodolistAC, TodolistDomainType, todolistsReducer } from './todolists-reduser'
+import { addTodolistTC, TodolistDomainType, todolistsReducer } from './todolists-reduser'
 import { TaskStateType } from '../../app/App'
 
 test('ids should be eauals', () => {
   const startTasksState: TaskStateType = {}
   const startTodolistsState: Array<TodolistDomainType> = []
-
-  const action = addTodolistAC({ todolist: { id: '1', title: '1', order: 0, addedDate: '' } })
+  const todolist = { id: '1', title: '1', order: 0, addedDate: '' }
+  const action = addTodolistTC.fulfilled({ todolist }, 'requiredId', todolist.title)
 
   const endTasksState = tasksReduser(startTasksState, action)
   const endTodolistState = todolistsReducer(startTodolistsState, action)

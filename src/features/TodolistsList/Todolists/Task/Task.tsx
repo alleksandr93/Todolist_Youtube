@@ -16,21 +16,29 @@ export const Task = memo((props: PropsType) => {
   const dispatch = useDispatch()
 
   const removeHandler = useCallback(() => {
-    dispatch(removeTaskTC(props.todolist.id, props.task.id))
+    dispatch(removeTaskTC({ todolistId: props.todolist.id, taskId: props.task.id }))
   }, [])
 
   const onChangeStatusHandler = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       dispatch(
-        updateTaskTC(props.todolist.id, props.task.id, {
-          status: event.currentTarget.checked ? TaskStatuses.Completed : TaskStatuses.New,
+        updateTaskTC({
+          todolistId: props.todolist.id,
+          taskId: props.task.id,
+          model: { status: event.currentTarget.checked ? TaskStatuses.Completed : TaskStatuses.New },
         }),
       )
     },
     [dispatch, props.todolist.id, props.task.id],
   )
   const onChangeTitleHandler = useCallback((newValue: string) => {
-    dispatch(updateTaskTC(props.todolist.id, props.task.id, { title: newValue }))
+    dispatch(
+      updateTaskTC({
+        todolistId: props.todolist.id,
+        taskId: props.task.id,
+        model: { title: newValue },
+      }),
+    )
   }, [])
 
   return (

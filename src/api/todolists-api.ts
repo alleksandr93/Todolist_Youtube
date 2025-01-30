@@ -4,8 +4,13 @@ export const instance = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
   headers: {
     'API-KEY': process.env.REACT_APP_API_KEY,
-    Authorization: `Bearer ${process.env.REACT_APP_AUTH_TOKEN}`,
   },
+})
+
+// это надо чтобы токен который хранить в локал сторадже подтягивался с каждым запросом
+instance.interceptors.request.use(config => {
+  config.headers['Authorization'] = `Bearer ${localStorage.getItem('sn-token')}`
+  return config
 })
 //api
 export const todolistsApi = {
@@ -36,7 +41,7 @@ export const todolistsApi = {
 }
 export const authApi = {
   login(data: LoginParamsType) {
-    return instance.post<ResponseType<{ token?: string; userId?: number }>>('auth/login', data)
+    return instance.post<ResponseType<{ token: string; userId: number }>>('auth/login', data)
   },
   me() {
     return instance.get<ResponseType<{ id: number; email: string; login: string }>>('auth/me')
@@ -52,8 +57,9 @@ export type TodolistType = {
   addedDate: string
   order: number
 }
+export type FieldErrorType = { field: string; error: string }
 export type ResponseType<D = {}> = {
-  fieldsErrors: []
+  fieldsErrors?: Array<FieldErrorType>
   messages: string[]
   resultCode: number
   data: D
