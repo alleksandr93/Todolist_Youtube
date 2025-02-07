@@ -8,9 +8,10 @@ import { type FormikHelpers, useFormik } from 'formik'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
 import { useSelector } from 'react-redux'
-import { type AppRootState, useAppDispatch } from '../../app/store'
+import { useAppDispatch } from '../../app/store'
 import { Navigate } from 'react-router-dom'
-import { loginTC } from './auth-reduser'
+import { login } from './auth-reduser'
+import { selectIsLoggedIn } from '../../app/selectors'
 
 type FormValues = {
   email: string
@@ -20,7 +21,7 @@ type FormValues = {
 }
 export const Login = () => {
   const dispatch = useAppDispatch()
-  const isLoggedIn = useSelector<AppRootState, boolean>(state => state.auth.isLoggedIn)
+  const isLoggedIn = useSelector(selectIsLoggedIn)
   const [showPassword, setShowPassword] = useState(false)
 
   const handleClickShowPassword = () => {
@@ -45,9 +46,9 @@ export const Login = () => {
       captcha: true,
     },
     onSubmit: async (values: FormValues, formikHelpers: FormikHelpers<FormValues>) => {
-      const res = await dispatch(loginTC(values))
+      const res = await dispatch(login(values))
       console.log(res)
-      if (loginTC.rejected.match(res)) {
+      if (login.rejected.match(res)) {
         if (res.payload?.fieldsErrors?.length) {
           const error = res.payload.fieldsErrors[0]
           formikHelpers.setFieldError(error.field, error.error)

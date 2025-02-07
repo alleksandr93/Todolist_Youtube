@@ -1,13 +1,13 @@
 import { v1 } from 'uuid'
 
 import {
-  addTodolistTC,
+  addTodolist,
   changeTodolistEntityStatusAC,
   changeTodolistFilterAC,
-  changeTodolistTitleTC,
-  fetchTodolistsTС,
+  changeTodolistTitle,
+  fetchTodolists,
   FilterValueType,
-  removeTodolistTC,
+  removeTodolist,
   TodolistDomainType,
   todolistsReducer,
 } from './todolists-reduser'
@@ -23,7 +23,7 @@ beforeEach(() => {
   ]
 })
 test('user reducer should be removed', () => {
-  const endState = todolistsReducer(startState, removeTodolistTC.fulfilled({ id: todolistId1 }, '', todolistId1))
+  const endState = todolistsReducer(startState, removeTodolist.fulfilled({ id: todolistId1 }, '', todolistId1))
   expect(endState.length).toBe(1)
   expect(endState[0].id).toBe(todolistId2)
 })
@@ -35,7 +35,7 @@ test('user reducer should be added', () => {
     addedDate: '',
     order: 0,
   }
-  const endState = todolistsReducer([], addTodolistTC.fulfilled({ todolist }, 'requaredId', todolist.title))
+  const endState = todolistsReducer([], addTodolist.fulfilled({ todolist }, 'requaredId', todolist.title))
 
   expect(endState.length).toBe(1)
   expect(endState[0].title).toBe(newTodolist)
@@ -44,7 +44,7 @@ test('correct todolist change its name', () => {
   const newTodolistTitle = 'New Todolist'
 
   let param = { todolistId: todolistId2, title: newTodolistTitle }
-  const endState = todolistsReducer(startState, changeTodolistTitleTC.fulfilled(param, 'requiredId', param))
+  const endState = todolistsReducer(startState, changeTodolistTitle.fulfilled(param, 'requiredId', param))
   expect(endState[0].title).toBe('What to learn')
   expect(endState[1].title).toBe(newTodolistTitle)
 })
@@ -56,7 +56,7 @@ test('correct filter of todolist should be changed', () => {
   expect(endState[1].filter).toBe(newFilter)
 })
 test('Todolists should be set to the state', () => {
-  const endState = todolistsReducer([], fetchTodolistsTС.fulfilled({ todolists: startState }, ''))
+  const endState = todolistsReducer([], fetchTodolists.fulfilled({ todolists: startState }, ''))
   debugger
   expect(endState.length).toBe(2)
 })

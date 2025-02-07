@@ -5,18 +5,17 @@ import IconButton from '@mui/material/IconButton'
 import DeleteIcon from '@mui/icons-material/Delete'
 import Button from '@mui/material/Button'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppRootState } from '../../../app/store'
 import {
   changeTodolistFilterAC,
-  changeTodolistTitleTC,
+  changeTodolistTitle,
   FilterValueType,
-  removeTodolistTC,
+  removeTodolist,
   TodolistDomainType,
 } from '../todolists-reduser'
-import { addTaskTC } from '../tasks-reduser'
+import { addTask } from '../tasks-reduser'
 import { TaskStatuses } from '../../../api/todolists-api'
-import { TaskStateType } from '../../../app/App'
 import { Task } from './Task/Task'
+import { selectTasks } from '../../../app/selectors'
 
 type PropsType = {
   todolists: TodolistDomainType
@@ -31,7 +30,7 @@ export const Todolist = memo(({ demo = false, ...props }: PropsType) => {
       return
     }
   }, [])
-  const tasks = useSelector<AppRootState, TaskStateType>(state => state.tasks)
+  const tasks = useSelector(selectTasks)
   let tasksForTodolist = tasks[id]
   if (filter === 'Completed') {
     tasksForTodolist = tasksForTodolist.filter(tl => tl.status === TaskStatuses.Completed)
@@ -46,15 +45,15 @@ export const Todolist = memo(({ demo = false, ...props }: PropsType) => {
     [dispatch, id],
   )
   const removeTodolistHandler = useCallback(() => {
-    dispatch(removeTodolistTC(id))
+    dispatch(removeTodolist(id))
   }, [])
-  const addTask = useCallback((title: string) => {
-    dispatch(addTaskTC({ todolistId: props.todolists.id, title }))
+  const addTaskFn = useCallback((title: string) => {
+    dispatch(addTask({ todolistId: props.todolists.id, title }))
   }, [])
 
   const changetodolistTitle = useCallback(
     (newTitle: string) => {
-      dispatch(changeTodolistTitleTC({ todolistId: id, title: newTitle }))
+      dispatch(changeTodolistTitle({ todolistId: id, title: newTitle }))
     },
     [dispatch, id],
   )
@@ -73,7 +72,7 @@ export const Todolist = memo(({ demo = false, ...props }: PropsType) => {
         </IconButton>
       </h3>
       <div className={'wrap'}>
-        <AddItemForm addItem={addTask} disabled={entityStatus === 'loading'} />
+        <AddItemForm addItem={addTaskFn} disabled={entityStatus === 'loading'} />
         <div>
           {tasksForTodolist.map(t => {
             return <Task key={t.id} task={t} todolist={props.todolists} />

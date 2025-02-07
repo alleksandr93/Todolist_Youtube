@@ -1,30 +1,26 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import { Todolist } from './Todolists/Todolist'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppRootState } from '../../app/store'
-import { addTodolistTC, fetchTodolistsTС, TodolistDomainType } from './todolists-reduser'
-import { AddItemForm } from '../../components/AddItemForm/AddItemForm'
+import { fetchTodolists } from './todolists-reduser'
 import { Navigate } from 'react-router-dom'
+import { selectIsLoggedIn, selectTodolists } from '../../app/selectors'
 
 type PropsType = {
   demo?: boolean
 }
-export const TodolistLIst = ({ demo = false, ...props }: PropsType) => {
+export const TodolistList = ({ demo = false, ...props }: PropsType) => {
   const dispatch = useDispatch()
-  const isLoggedIn = useSelector<AppRootState, boolean>(state => state.auth.isLoggedIn)
+  const isLoggedIn = useSelector(selectIsLoggedIn)
 
   useEffect(() => {
     if (demo || !isLoggedIn) {
       return
     }
-    dispatch(fetchTodolistsTС())
+    dispatch(fetchTodolists())
   }, [])
-  const addTodolist = useCallback((title: string) => {
-    dispatch(addTodolistTC(title))
-  }, [])
-  const todolists = useSelector<AppRootState, Array<TodolistDomainType>>(state => state.todolists)
+  const todolists = useSelector(selectTodolists)
   if (!isLoggedIn) {
     return <Navigate to={'/login'} />
   }
@@ -33,9 +29,6 @@ export const TodolistLIst = ({ demo = false, ...props }: PropsType) => {
       {todolists.map(tl => {
         return (
           <div key={tl.id}>
-            <Grid container sx={{ padding: '10px' }}>
-              <AddItemForm addItem={addTodolist} />
-            </Grid>
             <Grid container spacing={3}>
               <Grid item>
                 <Paper elevation={5} sx={{ padding: '10px' }}>

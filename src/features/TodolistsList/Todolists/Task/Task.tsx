@@ -5,7 +5,7 @@ import { ChangeEvent, memo, useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { TaskStatuses, TaskType } from '../../../../api/todolists-api'
 import { EditableSpan } from '../../../../components/EditableSpan/EditableSpan'
-import { removeTaskTC, updateTaskTC } from '../../tasks-reduser'
+import { removeTask, updateTask } from '../../tasks-reduser'
 import { TodolistDomainType } from '../../todolists-reduser'
 
 type PropsType = {
@@ -16,13 +16,13 @@ export const Task = memo((props: PropsType) => {
   const dispatch = useDispatch()
 
   const removeHandler = useCallback(() => {
-    dispatch(removeTaskTC({ todolistId: props.todolist.id, taskId: props.task.id }))
+    dispatch(removeTask({ todolistId: props.todolist.id, taskId: props.task.id }))
   }, [])
 
   const onChangeStatusHandler = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       dispatch(
-        updateTaskTC({
+        updateTask({
           todolistId: props.todolist.id,
           taskId: props.task.id,
           model: { status: event.currentTarget.checked ? TaskStatuses.Completed : TaskStatuses.New },
@@ -33,7 +33,7 @@ export const Task = memo((props: PropsType) => {
   )
   const onChangeTitleHandler = useCallback((newValue: string) => {
     dispatch(
-      updateTaskTC({
+      updateTask({
         todolistId: props.todolist.id,
         taskId: props.task.id,
         model: { title: newValue },

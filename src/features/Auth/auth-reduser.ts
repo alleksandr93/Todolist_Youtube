@@ -5,11 +5,32 @@ import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/tool
 import type { AxiosError } from 'axios'
 import { clearTasksAndTodolists } from '../../common/actions/common.action'
 
-export const loginTC = createAsyncThunk<
+const slice = createSlice({
+  name: 'auth',
+  initialState: {
+    isLoggedIn: false,
+  },
+  reducers: {
+    setIsLoggedInAC(state, action: PayloadAction<{ value: boolean }>) {
+      state.isLoggedIn = action.payload.value
+    },
+  },
+  extraReducers: builder => {
+    builder.addCase(login.fulfilled, (state, action) => {
+      state.isLoggedIn = true
+    })
+    builder.addCase(logout.fulfilled, (state, action) => {
+      state.isLoggedIn = false
+    })
+  },
+})
+export const authReduser = slice.reducer
+export const { setIsLoggedInAC } = slice.actions
+export const login = createAsyncThunk<
   undefined,
   LoginParamsType,
   { rejectValue: { errors: Array<string>; fieldsErrors?: Array<FieldErrorType> } }
->('auth/login', async (param, thunkAPI) => {
+>(`${slice.name}/login`, async (param, thunkAPI) => {
   thunkAPI.dispatch(setAppStatusAC({ status: 'loading' }))
   try {
     const res = await authApi.login(param)
@@ -28,7 +49,7 @@ export const loginTC = createAsyncThunk<
   }
 })
 
-export const logoutTC = createAsyncThunk('auth/logout', async (param, thunkAPI) => {
+export const logout = createAsyncThunk(`${slice.name}/logout`, async (param, thunkAPI) => {
   thunkAPI.dispatch(setAppStatusAC({ status: 'loading' }))
   try {
     const res = await authApi.logout()
@@ -46,25 +67,3 @@ export const logoutTC = createAsyncThunk('auth/logout', async (param, thunkAPI) 
     return thunkAPI.rejectWithValue({})
   }
 })
-
-const slice = createSlice({
-  name: 'auth',
-  initialState: {
-    isLoggedIn: false,
-  },
-  reducers: {
-    setIsLoggedInAC(state, action: PayloadAction<{ value: boolean }>) {
-      state.isLoggedIn = action.payload.value
-    },
-  },
-  extraReducers: builder => {
-    builder.addCase(loginTC.fulfilled, (state, action) => {
-      state.isLoggedIn = true
-    })
-    builder.addCase(logoutTC.fulfilled, (state, action) => {
-      state.isLoggedIn = false
-    })
-  },
-})
-export const authReduser = slice.reducer
-export const { setIsLoggedInAC } = slice.actions

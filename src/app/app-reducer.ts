@@ -1,8 +1,8 @@
 import { authApi } from '../api/todolists-api'
-import { setIsLoggedInAC } from '../features/Login/auth-reduser'
+import { setIsLoggedInAC } from '../features/Auth/auth-reduser'
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
-export const initializeAppTC = createAsyncThunk('app/initializeApp', async (param, { dispatch, rejectWithValue }) => {
+export const initializeApp = createAsyncThunk('app/initializeApp', async (param, { dispatch, rejectWithValue }) => {
   try {
     const res = await authApi.me()
     if (res.data.resultCode === 0) {
@@ -29,7 +29,7 @@ const slice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder.addCase(initializeAppTC.fulfilled, state => {
+    builder.addCase(initializeApp.fulfilled, state => {
       state.isInitialized = true
     })
   },

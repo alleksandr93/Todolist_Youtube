@@ -11,12 +11,16 @@ import { TaskType } from '../api/todolists-api'
 import './App.css'
 import { CircularProgress, LinearProgress } from '@mui/material'
 import { CustomizedSnackbars } from '../components/ErrorSnackBar/ErrorSnackBar'
-import { TodolistLIst } from '../features/TodolistsList/TodolistLIst'
+import { TodolistList } from '../features/TodolistsList/TodolistList'
 import type { AppRootState } from './store'
-import { initializeAppTC, type RequestStatusType } from './app-reducer'
+import { initializeApp } from './app-reducer'
 import { Route, Routes } from 'react-router-dom'
-import { Login } from '../features/Login/Login'
-import { logoutTC } from '../features/Login/auth-reduser'
+import { Login } from '../features/Auth/Login'
+import { logout } from '../features/Auth/auth-reduser'
+import { AddItemForm } from '../components/AddItemForm/AddItemForm'
+import Grid from '@mui/material/Grid'
+import { addTodolist } from '../features/TodolistsList/todolists-reduser'
+import { selectIsInitialized, selectIsLoggedIn, selectStatus } from './selectors'
 
 export type TaskStateType = {
   [key: string]: Array<TaskType>
@@ -24,18 +28,23 @@ export type TaskStateType = {
 type PropsType = {
   demo?: boolean
 }
+
 export const App = memo(({ demo = false, ...props }: PropsType) => {
-  const status = useSelector<AppRootState, RequestStatusType>(state => state.app.status)
-  const isInitialized = useSelector<AppRootState, boolean>(state => state.app.isInitialized)
-  const isLoggedIn = useSelector<AppRootState, boolean>(status => status.auth.isLoggedIn)
+  const status = useSelector(selectStatus)
+  const isInitialized = useSelector<AppRootState, boolean>(selectIsInitialized)
+  const isLoggedIn = useSelector<AppRootState, boolean>(selectIsLoggedIn)
   const dispatch = useDispatch()
+  const addTodolist = useCallback((title: string) => {
+    console.log(title)
+    dispatch(addTodolist(title))
+  }, [])
   useEffect(() => {
     if (!demo) {
-      dispatch(initializeAppTC())
+      dispatch(initializeApp())
     }
   }, [])
   const logoutHandler = useCallback(() => {
-    dispatch(logoutTC())
+    dispatch(logout())
   }, [])
   if (!isInitialized) {
     return (
@@ -66,8 +75,11 @@ export const App = memo(({ demo = false, ...props }: PropsType) => {
         <LinearProgress style={{ position: 'absolute', top: '0', left: '0', width: '100%' }} color="primary" />
       )}
       <Container fixed>
+        <Grid container sx={{ padding: '10px' }}>
+          <AddItemForm addItem={addTodolist} />
+        </Grid>
         <Routes>
-          <Route path={'/'} element={<TodolistLIst demo={demo} />} />
+          <Route path={'/'} element={<TodolistList demo={demo} />} />
           <Route path={'/login'} element={<Login />} />
         </Routes>
       </Container>

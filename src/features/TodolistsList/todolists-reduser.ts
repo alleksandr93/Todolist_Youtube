@@ -2,18 +2,18 @@ import { todolistsApi, TodolistType } from '../../api/todolists-api'
 import type { Dispatch } from 'redux'
 import { type RequestStatusType, setAppStatusAC } from '../../app/app-reducer'
 import { handleServerNetworkError } from '../../utils/error-utils'
-import { fetchTasksTC } from './tasks-reduser'
+import { fetchTasks } from './tasks-reduser'
 import { createAction, createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { clearTasksAndTodolists } from '../../common/actions/common.action'
 
-export const fetchTodolistsTС = createAsyncThunk(
+export const fetchTodolists = createAsyncThunk(
   'todolists/fetchTodolists',
   async (param, { dispatch, rejectWithValue }) => {
     dispatch(setAppStatusAC({ status: 'loading' }))
     try {
       const res = await todolistsApi.getTodolistAPI()
       dispatch(setAppStatusAC({ status: 'successes' }))
-      res.data.forEach(el => dispatch(fetchTasksTC(el.id)))
+      res.data.forEach(el => dispatch(fetchTasks(el.id)))
       return { todolists: res.data }
     } catch (error) {
       handleServerNetworkError(error, dispatch)
@@ -21,7 +21,7 @@ export const fetchTodolistsTС = createAsyncThunk(
     }
   },
 )
-export const removeTodolistTC = createAsyncThunk(
+export const removeTodolist = createAsyncThunk(
   'todolists/removeTodolist',
   async (todolistId: string, { dispatch, rejectWithValue }) => {
     dispatch(setAppStatusAC({ status: 'loading' }))
@@ -31,7 +31,7 @@ export const removeTodolistTC = createAsyncThunk(
     return { id: todolistId }
   },
 )
-export const addTodolistTC = createAsyncThunk(
+export const addTodolist = createAsyncThunk(
   'todolists/addTodolist',
   async (title: string, { dispatch, rejectWithValue }) => {
     dispatch(setAppStatusAC({ status: 'loading' }))
@@ -40,7 +40,7 @@ export const addTodolistTC = createAsyncThunk(
     return { todolist: res.data.data.item }
   },
 )
-export const changeTodolistTitleTC = createAsyncThunk(
+export const changeTodolistTitle = createAsyncThunk(
   'todolists/changeTodolist',
   async (param: { todolistId: string; title: string }, { dispatch }) => {
     const res = await todolistsApi.updateTodolistAPI(param.todolistId, param.title)
@@ -61,19 +61,19 @@ const slice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder.addCase(fetchTodolistsTС.fulfilled, (state, action) => {
+    builder.addCase(fetchTodolists.fulfilled, (state, action) => {
       return action.payload.todolists.map(el => ({ ...el, filter: 'All', entityStatus: 'idle' }))
     })
-    builder.addCase(removeTodolistTC.fulfilled, (state, action) => {
+    builder.addCase(removeTodolist.fulfilled, (state, action) => {
       const index = state.findIndex(tl => tl.id === action.payload.id)
       if (index > -1) {
         state.splice(index, 1)
       }
     })
-    builder.addCase(addTodolistTC.fulfilled, (state, action) => {
+    builder.addCase(addTodolist.fulfilled, (state, action) => {
       state.unshift({ ...action.payload.todolist, filter: 'All', entityStatus: 'idle' })
     })
-    builder.addCase(changeTodolistTitleTC.fulfilled, (state, action) => {
+    builder.addCase(changeTodolistTitle.fulfilled, (state, action) => {
       const index = state.findIndex(tl => tl.id === action.payload.todolistId)
       state[index].title = action.payload.title
     })
